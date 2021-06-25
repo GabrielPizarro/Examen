@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using BD;
+
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,8 @@ namespace WebApplicationExamenI
         public static IServiceCollection AddDIContainer(this IServiceCollection services)
         {
 
-
+            services.AddSingleton<IDataAccess, DataAccess>();
+            //services.AddTransient</*EL SERVICES*/>();
             return services;
         }
     }
