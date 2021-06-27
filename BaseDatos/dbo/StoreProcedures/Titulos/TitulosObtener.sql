@@ -11,6 +11,6 @@ AS
 	  ,Estado
 
 	FROM Titulos
-	WHERE (@Id_Titulo = NULL OR Id_Titulo = @Id_Titulo )
+	WHERE (@Id_Titulo IS NULL OR Id_Titulo = @Id_Titulo )
 
 	END

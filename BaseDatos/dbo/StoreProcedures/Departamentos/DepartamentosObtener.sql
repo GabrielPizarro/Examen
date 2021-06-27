@@ -12,6 +12,6 @@ AS
 	  Estado
 
 	FROM Departamentos
-	WHERE (@Id_Departamento = NULL OR Id_Departamento = @Id_Departamento )
+	WHERE (@Id_Departamento IS NULL OR Id_Departamento = @Id_Departamento )
 
 	END

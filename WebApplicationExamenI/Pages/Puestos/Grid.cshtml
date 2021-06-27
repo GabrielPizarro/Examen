@@ -6,17 +6,18 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-           Puestos  <!--aca va el nombre de la entidad-->
+            Puestos  <!--aca va el nombre de la entidad-->
         </div>
         <div class="card-body">
 
             <a class="btn btn-outline-primary" asp-page="Edit">
-                <i class='bx bxs-add-to-queue'></i>
+                <i class='bx bx-add-to-queue'></i>
             </a>
+
 
             <div class="row">
                 <div class="col-12">
-                    <table id="GridView" class=" " table table-bordered table-striped table-hover>
+                    <table id="GridView" class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -30,27 +31,35 @@
                             @foreach (var item in Model.GridList)
                             {
                                 <tr>
+                                    <td>@item.Id_Puesto</td>
                                     <td>@item.Nombre</td>
                                     <td>@item.Salario</td>
                                     <td>@(item.Estado ? "Activo": "Inactivo")</td>
                                     <td>
-                                        <button type="button" class="btn btn-outline-primary">
-                                            <i class='btn-xl bxs-edit'></i>
-                                        </button>
+                                        <a class="btn btn-outline-primary" asp-page="Edit" asp-route-id="@item.Id_Puesto">
+                                            <i class='bx bxs-edit'></i>
+                                        </a>
 
                                         <button type="button" class="btn btn-outline-primary"
                                                 onclick="PuestosGrid.OnClickEliminar(@item.Id_Puesto)">
-                                            <i class='btn-xl bxs-trash'></i>
+                                            <i class='bx bx-trash'></i>
                                         </button>
                                     </td>
                                 </tr>
+
                             }
+
+
+
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+
+
 </div>
 
 @section Scripts{
@@ -58,6 +67,7 @@
     <script>
         var MensajeApp = "@Html.Raw(Model.Mensaje) ";
     </script>
+
     <script defer src="~/App/Puestos/Grid.js"></script>
 
 

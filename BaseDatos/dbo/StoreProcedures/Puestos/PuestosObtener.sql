@@ -12,6 +12,6 @@ AS
 	  ,Estado
 
 	FROM Puestos
-	WHERE (@Id_Puesto = NULL OR Id_Puesto = @Id_Puesto )
+	WHERE (@Id_Puesto IS NULL OR Id_Puesto = @Id_Puesto )
 
 	END
