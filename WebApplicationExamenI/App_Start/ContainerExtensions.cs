@@ -1,5 +1,5 @@
 ﻿using BD;
-
+using WBL;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,9 @@ namespace WebApplicationExamenI
         {
 
             services.AddSingleton<IDataAccess, DataAccess>();
-            //services.AddTransient</*EL SERVICES*/>();
+            services.AddTransient<IDepartamentosService, DepartamentosService>();            
+            services.AddTransient<ITitulosService, TitulosService>();
+            services.AddTransient<IPuestosService, PuestosService>();
             return services;
         }
     }

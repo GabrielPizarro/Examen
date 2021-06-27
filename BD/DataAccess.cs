@@ -49,6 +49,29 @@ namespace BD
 
         }
 
+       public async Task<IEnumerable<dynamic>> QueryAsync(string sp, object Param = null, int? Timeout = null)
+        {
+            try
+            {
+                using (var exec = DbConnection)
+                {
+                    await exec.OpenAsync();
+
+                    var result = exec.QueryAsync(sql: sp, param: Param, commandType: System.Data.CommandType.StoredProcedure
+                        , commandTimeout: Timeout);
+
+                    return await result;
+                    
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
 
         public async Task<IEnumerable<T>> QueryAsync<T, B>(string sp, object Param = null, int? Timeout = null)
         {
@@ -62,31 +85,7 @@ namespace BD
                         , commandTimeout: Timeout);
 
                     return await result;
-                    ;
-                }
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-        }
-
-        public async Task<IEnumerable<dynamic>> QueryAsync(string sp, object Param = null, int? Timeout = null)
-        {
-            try
-            {
-                using (var exec = DbConnection)
-                {
-                    await exec.OpenAsync();
-
-                    var result = exec.QueryAsync(sql: sp, param: Param, commandType: System.Data.CommandType.StoredProcedure
-                        , commandTimeout: Timeout);
-
-                    return await result;
-                    ;
+                    
                 }
 
             }
@@ -111,7 +110,7 @@ namespace BD
                         , commandTimeout: Timeout);
 
                     return await result;
-                    ;
+                    
                 }
 
             }
@@ -135,7 +134,7 @@ namespace BD
                         , commandTimeout: Timeout);
 
                     return await result;
-                    ;
+                    
                 }
 
             }
@@ -160,7 +159,7 @@ namespace BD
                         , commandTimeout: Timeout);
 
                     return await result;
-                    ;
+                    
                 }
 
             }
@@ -185,7 +184,7 @@ namespace BD
                         , commandTimeout: Timeout);
 
                     return await result;
-                    ;
+                    
                 }
 
             }
@@ -209,7 +208,7 @@ namespace BD
                         , commandTimeout: Timeout);
 
                     return await result;
-                    ;
+                    
                 }
 
             }
